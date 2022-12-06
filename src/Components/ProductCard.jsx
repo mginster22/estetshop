@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, } from "react";
 import { HiOutlinePlus } from "react-icons/hi";
 import { BsSuitHeartFill } from "react-icons/bs";
 import { BsSuitHeart } from "react-icons/bs";
@@ -16,6 +16,8 @@ export const ProductCard = ({
 
   const obj = { id, parentId: id, description, price, title, img };
 
+
+
   const handlerAdded = () => {
     setIsProductAdded(!isProductAdded);
     handlerAddToBasket(obj);
@@ -24,6 +26,9 @@ export const ProductCard = ({
     setIsLike(!isLike);
     handlerAddedToFavorite(obj);
   };
+
+
+
 
   return (
     <article

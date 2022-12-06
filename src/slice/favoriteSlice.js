@@ -16,7 +16,7 @@ export const getAllFavorite = createAsyncThunk(favoriteGet, async function () {
 export const addToFavorite = createAsyncThunk(
   favoritePost,
   async function (obj, { rejectWithValue, dispatch }) {
-    const { data } = await axios.post(
+    const {data }=await axios.post(
       "https://6388f8d0a4bb27a7f79682fc.mockapi.io/api/products/favorite",
       obj
     );
@@ -27,10 +27,10 @@ export const addToFavorite = createAsyncThunk(
 export const deleteFromFavorite = createAsyncThunk(
   favoriteDelete,
  async function (id, { rejectWithValue, dispatch }) {
-    dispatch(deleteFavorite({id}));
+   dispatch(deleteFavorite({id}));
    await axios.delete(
-      `https://6388f8d0a4bb27a7f79682fc.mockapi.io/api/products/favorite/${id}`
-    );
+     `https://6388f8d0a4bb27a7f79682fc.mockapi.io/api/products/favorite/${id}`
+     );
   }
 );
 

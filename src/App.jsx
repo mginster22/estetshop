@@ -20,13 +20,13 @@ function App() {
   const [basketModal, setBasketModal] = useState(false);
   const { basket } = useSelector((state) => state.basket);
   const { favorite } = useSelector((state) => state.favorite);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllProducts());
     dispatch(getAllBasket());
     dispatch(getAllFavorite());
+    
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
