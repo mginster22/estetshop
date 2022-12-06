@@ -14,10 +14,8 @@ import {
 } from "./slice/favoriteSlice";
 import { addToBasket, deleteBasket, getAllBasket } from "./slice/basketSlice";
 import { getAllProducts } from "./slice/productSlice";
-import { useTheme } from "./hooks/use-theme";
 
 function App() {
-  const [theme, setTheme] = useTheme("light");
 
   const [basketModal, setBasketModal] = useState(false);
   const { basket } = useSelector((state) => state.basket);
@@ -44,8 +42,9 @@ function App() {
   };
 
   const handlerAddedToFavorite = (obj) => {
-    if (favorite.find((item) => Number(item.id) === Number(obj.id))) {
-      dispatch(deleteFromFavorite(obj.id));
+    const findFavorite = favorite.find((item) => Number(item.parentId) === Number(obj.id))
+    if (findFavorite) {
+      dispatch(deleteFromFavorite(findFavorite.id));
     } else {
       dispatch(addToFavorite(obj));
     }
@@ -58,7 +57,6 @@ function App() {
   };
   return (
     <>
-      {theme && (
         <div >
           <Basket setBasketModal={setBasketModal} basketModal={basketModal} />
           <Header setBasketModal={setBasketModal} />
@@ -89,7 +87,6 @@ function App() {
             </Routes>
           </Main>
         </div>
-      )}
     </>
   );
 }

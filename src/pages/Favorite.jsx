@@ -11,7 +11,6 @@ export const Favorite = ({ handlerAddedToFavorite, handlerAddToBasket,isItemAdde
         <ProductCard
           card={card}
           key={card.id}
-          favorite={favorite.some((obj)=>Number(obj.id)===Number(card.id))}
           handlerAddedToFavorite={handlerAddedToFavorite}
           handlerAddToBasket={handlerAddToBasket}
           isItemAdded={isItemAdded}
